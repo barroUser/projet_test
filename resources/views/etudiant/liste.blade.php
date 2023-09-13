@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Laravel test</h1>
-    <a href="/ajouter" class="btn btn-primary">Ajouter </a>
+    <a href="/ajouter" class="btn btn-primary">Ajouter</a>
     <hr>
     @if (session('status'))
     <div class="alert alert-success">
