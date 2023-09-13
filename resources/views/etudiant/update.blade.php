@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>crud demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Modification</h1>
+    <hr>
+
+    @if (session('status'))
+    <div>
+        {{session('status')}}
+    </div>
+    @endif
+
+    <ul>
+    @foreach($errors->all() as $error)
+        <li class="alert alert-danger">{{$error}}</li>
+    @endforeach
+    </ul>
+
+   
+    <form action="/update/traitement" method="GET" class="form-groupe">
+        @csrf
+
+  <input type="text" name="id" style="display:none;" value="{{$etudiants->id}}">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Nom</label>
+    <input type="text" class="form-control" id="nom" name="nom" value="{{$etudiants->nom}}">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">prenom</label>
+    <input type="text" class="form-control" id="prenom" name="prenom" value="{{$etudiants->prenom}}">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">classe</label>
+    <input type="text" class="form-control" id="classe" name="classe" value="{{$etudiants->classe}}">
+  </div>
+  <button type="submit" class="btn btn-primary">modifier un étudiant</button>
+</form>
+<br>
+<a href="/etudiant" class="btn btn-success">revenir a la liste</a>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
